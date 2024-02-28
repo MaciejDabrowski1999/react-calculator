@@ -1,0 +1,51 @@
+import Button from './Button'
+export default function Buttons() {
+	return (
+		<table>
+			<tr>
+				<td>
+					<Button>7</Button>
+				</td>
+				<td>
+					<Button>8</Button>
+				</td>
+				<td>
+					<Button>9</Button>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<Button>4</Button>
+				</td>
+				<td>
+					<Button>5</Button>
+				</td>
+				<td>
+					<Button>6</Button>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<Button>1</Button>
+				</td>
+				<td>
+					<Button>2</Button>
+				</td>
+				<td>
+					<Button>3</Button>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<Button>+</Button>
+				</td>
+				<td>
+					<Button>-</Button>
+				</td>
+				<td>
+					<Button>=</Button>
+				</td>
+			</tr>
+		</table>
+	)
+}
