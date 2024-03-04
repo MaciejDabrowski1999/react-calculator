@@ -1,7 +1,11 @@
-export default function Button({ children, ...props }) {
+export default function Button({ onClick, sign }) {
+	let moduleClass = 'size-10 border-2 border-stone-300'
+	if (sign === '=') {
+		moduleClass += ' size-10 w-[90px]'
+	}
 	return (
-		<button {...props} className="size-10 border-2 border-stone-300">
-			{children}
+		<button onClick={onClick} className={moduleClass}>
+			{sign}
 		</button>
 	)
 }
