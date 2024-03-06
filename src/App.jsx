@@ -9,6 +9,13 @@ export default function App() {
 		sign: '',
 		res: null,
 	})
+
+	function clickNumHandler(e){
+		let num= e.target.innerHTML
+		setResult({...result,
+		num: result.num === 0 && result.num === '0' ? '0' : result.num % 1 === 0 ? Number(result.num + num) : result.num + num, 
+	res: })
+	}
 	function calculate(a,b){
 		setResult(prevResult =>{
 			if(result.sign === '+'){
