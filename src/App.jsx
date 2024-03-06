@@ -5,10 +5,23 @@ import { ContextResult } from './utils/Context.js'
 
 export default function App() {
 	const [result, setResult] = useState({
-		num1: null,
+		num: null,
 		sign: '',
 		res: null,
 	})
+	function calculate(a,b){
+		setResult(prevResult =>{
+			if(result.sign === '+'){
+				result.res === a + b
+			} else if (result.sign === '-'){
+				result.res = a - b
+			} else if (result.sign === 'X'){
+				result.res = a * b
+			} else if(result.sign === '/'){
+				result.res = a / b
+			}
+		})
+	}
 
 	return (
 		<ContextResult.Provider value={result}>
