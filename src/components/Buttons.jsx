@@ -7,11 +7,19 @@ import { ContextResult } from '../utils/Context.js'
 export default function Buttons() {
 	const result = useContext(ContextResult)
 	function handleClick(e) {
-		const numberOne = e.target.innerHTML
-		const prevNumOne = result.num1
-		result.num1 = [prevNumOne, ...numberOne]
-		console.log(result.num1)
+		let sign = e.target.innerHTML
+		let numbers = '/([0-9])/g'
+
+		if (sign === numbers) {
+			result.num = sign
+		} else if (sign === 'C') {
+			;(result.res = null), (result.num = null), (result.sign = '')
+		}
+
 	}
+
+	
+
 	return (
 		<ul className="flex flex-wrap gap-2.5 w-[190px] h-64">
 			{signs.flat().map((sign, index) => {
