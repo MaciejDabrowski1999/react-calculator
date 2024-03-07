@@ -13,29 +13,28 @@ export default function App() {
 	function clickNumHandler(e){
 		let num= e.target.innerHTML
 		setResult({...result,
-		num: result.num === 0 && result.num === '0' ? '0' : result.num % 1 === 0 ? Number(result.num + num) : result.num + num, 
-	res: })
+		num: result.num === 0 && num === '0' ? '0' : result.num % 1 === 0 ? Number(result.num + num) : result.num + num, 
+	res:  !result.sign ? '0' : result.res})
 	}
-	function calculate(a,b){
-		setResult(prevResult =>{
-			if(result.sign === '+'){
-				result.res === a + b
-			} else if (result.sign === '-'){
-				result.res = a - b
-			} else if (result.sign === 'X'){
-				result.res = a * b
-			} else if(result.sign === '/'){
-				result.res = a / b
-			}
-		})
-	}
+
+	const signClickHandler = (e) => {
+		e.preventDefault();
+		const value = e.target.innerHTML;
+	  
+		setResult({
+		  ...result,
+		  sign: value,
+		  res: !result.res && result.num ? result.num : result.res,
+		  num: 0,
+		});
+	  };
 
 	return (
 		<ContextResult.Provider value={result}>
 			<div className="flex flex-col items-center">
 				<h1 className="my-2 uppercase font-bold text-2xl">React calculator</h1>
 				<Screen screenResult={result}></Screen>
-				<Buttons></Buttons>
+				<Buttons calc={clickNumHandler}></Buttons>
 			</div>
 		</ContextResult.Provider>
 	)
